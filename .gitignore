@@ -2,20 +2,35 @@ curl -sL https://raw.githubusercontent.com/github/gitignore/main/Python.gitignor
      https://raw.githubusercontent.com/github/gitignore/main/Global/JetBrains.gitignore \
      https://raw.githubusercontent.com/github/gitignore/main/Global/macOS.gitignore | \
      cat - > .gitignore && \
-     echo -e "\n# === VIP PROJECT SPECIFIC ===\n\
+     echo -e"
+
 # 1. Huge sensor data (701k rows!)\n\
-data/*.csv\n\
-data/*.json\n\
-\n\
+data/*.csv
+data/*.json
+
 # 2. Trained models & checkpoints\n\
-models/*.pkl\n\
-models/*.pt\n\
-models/vae_checkpoints/\n\
-\n\
+models/*.pkl
+models/*.pt
+models/vae_checkpoints/
+
 # 3. Docker & local runs\n\
-.docker/\n\
-*.log\n\
-\n\
+.docker/
+*.log
+
 # 4. VSCode / PyCharm\n\
-.vscode/\n\
-.idea/\n" >> .gitignore
+.vscode/
+.idea/" >> .gitignore
+
+cat > .gitignore << 'EOF'
+
+# === HUGE DATA (701k rows!) ===
+data/*.csv
+data/*.json
+
+# === PYTHON & OS JUNK ===
+__pycache__/
+*.pyc
+venv/
+.env
+.DS_Store
+EOF
