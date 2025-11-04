@@ -1,4 +1,3 @@
-# app/kafka_consumer.py
 from kafka import KafkaConsumer
 import json
 import torch
